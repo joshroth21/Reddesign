@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col-sm-12">
+		<h1>Top 10 Posts</h1>
+		<div class="panel panel-default" ng-repeat="post in topPosts">
+			<a href="#/post/{{ post.data.name }}" class="post-link">
+			<div class="panel-body">
+				<h4>
+				<div class="well well-sm pull-left score">{{ post.data.score }}</div>
+				<div class="well well-sm pull-right comments">{{ post.data.num_comments }}</div>
+					{{ post.data.title }}
+					<small>r/{{ post.data.subreddit }}</small>
+				</h4>
+			</div>
+		</a>
+		</div>
+	</div>
+</div>

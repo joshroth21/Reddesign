@@ -1,0 +1,11 @@
+<div class="row">
+	<div class="col-sm-12">
+		<h1 class="page-title">{{ post.title }} <small>r/{{ post.subreddit }}</small></h1>
+		<p>{{ post.url }}</p>
+		<p>{{ post.selftext }}</p>
+		<p>
+			<img ng-src="{{ post.preview.images[0].source.url }}" alt="{{ post.title }}" />
+		</p>
+		<div class="well well-sm">{{post}}</div>
+	</div>
+</div>
