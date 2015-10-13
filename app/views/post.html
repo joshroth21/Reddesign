@@ -6,6 +6,7 @@
 		<p>
 			<img ng-src="{{ post.preview.images[0].source.url }}" alt="{{ post.title }}" />
 		</p>
-		<div class="well well-sm">{{post}}</div>
+		<p ng-bind-html="postMediaEmbed"></p>
+		<div class="well well-sm"><h4>Raw JSON</h4><pre>{{ post | json }}</pre></div>
 	</div>
 </div>
