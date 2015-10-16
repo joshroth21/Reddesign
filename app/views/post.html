@@ -1,10 +1,10 @@
 <div class="row">
 	<div class="col-sm-12">
-		<h1 class="page-title">{{ post.title }} <small>r/{{ post.subreddit }}</small></h1>
+		<h1 class="page-title">{{ post.title }} <small><a href="#/r/{{ post.subreddit }}" class="sub-link">r/{{ post.subreddit }}</a></small></h1>
 		<p>{{ post.url }}</p>
 		<p>{{ post.selftext }}</p>
 		<p>
-			<img ng-src="{{ post.preview.images[0].source.url }}" alt="{{ post.title }}" />
+			<img ng-src="{{ post.preview.images[0].source.url }}" alt="{{ post.title }}" class="img-responsive" />
 		</p>
 		<p ng-bind-html="postMediaEmbed"></p>
 		<div class="well well-sm"><h4>Raw JSON</h4><pre>{{ post | json }}</pre></div>

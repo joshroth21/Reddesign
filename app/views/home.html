@@ -1,17 +1,28 @@
 <div class="row">
 	<div class="col-sm-12">
-		<h1>Top 10 Posts</h1>
+		<div class="page-header">
+			<h1>Top 10 Posts</h1>
+		</div>
 		<div class="panel panel-default" ng-repeat="post in topPosts">
-			<a href="#/post/{{ post.data.name }}" class="post-link">
-			<div class="panel-body">
-				<h4>
-				<div class="well well-sm pull-left score">{{ post.data.score }}</div>
-				<div class="well well-sm pull-right comments">{{ post.data.num_comments }}</div>
-					{{ post.data.title }}
-					<small>r/{{ post.data.subreddit }}</small>
-				</h4>
-			</div>
-		</a>
+				<div class="panel-heading">
+					<h4 class="panel-title clearfix">
+						<div class="well well-sm pull-left score">{{ post.data.score }}</div>
+						<div class="well well-sm pull-right comments">{{ post.data.num_comments }}</div>
+						<a href="#/p/{{ post.data.name }}" class="post-link">
+							{{ post.data.title }}
+						</a>
+						<small><a href="#/r/{{ post.data.subreddit }}" class="sub-link">r/{{ post.data.subreddit }}</a></small>
+					</h4>
+				</div>
+				<div class="panel-body" ng-hide="!post.data.thumbnail && !post.data.selftext">
+					<div class="post-thumbnail" ng-show="{{ post.data.thumbnail }}">
+						<a href="{{ post.data.url }}" class="thumb-link"><img src="{{ post.data.thumbnail }}" class="img-thumbnail"></a>
+					</div>
+					<div class="post-text" ng-show="{{ post.data.selftext }}">
+						<p>{{ post.data.selftext }}</p>
+					</div>
+				</div>
+			</a>
 		</div>
 	</div>
 </div>

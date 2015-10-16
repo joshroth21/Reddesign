@@ -16,9 +16,13 @@ app.config(function ($routeProvider) {
 		controller: 'HomeController',
 		templateUrl: 'views/home.html'
 	})
-	.when("/post/:postName",{
+	.when("/p/:postName", {
 		controller: 'PostController',
 		templateUrl: 'views/post.html'
+	})
+	.when("/r/:subName", {
+		controller: 'SubredditController',
+		templateUrl: 'views/subreddit.html'
 	})
 	.otherwise({
 		redirectTo: '/'

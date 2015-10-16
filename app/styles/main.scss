@@ -24,7 +24,11 @@ h4 {
 	}
 }
 
+a.sub-link, a.sub-link:visited { color: #777; text-decoration: none; }
+a.sub-link:hover { color: #000; }
+
 .well.well-sm {
+	background-color: #FFF;
 	word-wrap: break-word;
 }
 
