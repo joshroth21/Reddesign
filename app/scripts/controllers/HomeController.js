@@ -1,7 +1,5 @@
 'use strict';
 
-angular.module('reddesign00App').controller('HomeController',['$scope', 'topPosts', function($scope, topPosts) {
-	topPosts.success(function(data){
-		$scope.topPosts = data.data.children;
-	});
-}]);
+angular.module('Reddesign').controller('HomeController', function($scope, topPosts) {
+	$scope.topPosts = new topPosts();
+});
