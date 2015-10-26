@@ -1,10 +1,9 @@
 <div class="row">
-	<div class="col-sm-12">
-		<div class="page-header">
 	<div class="col-sm-12" infinite-scroll="topPosts.nextPage()" infinite-scroll-disabled='topPosts.busy' infinite-scroll-distance='1'>
+		<!-- <div class="page-header">
 			<h1>Top 10 Posts</h1>
-		</div>
-		<div class="panel panel-default" ng-repeat="post in topPosts">
+		</div> -->
+		<!-- <div class="panel panel-default" ng-repeat="post in topPosts">
 				<div class="panel-heading">
 					<h4 class="panel-title clearfix">
 						<div class="well well-sm pull-left score">{{ post.data.score }}</div>
@@ -24,6 +23,35 @@
 					</div>
 				</div>
 			</a>
+		</div> -->
+		<div class="panel panel-default post" ng-repeat="post in topPosts.items" ng-class="{ active: hover }" ng-mouseenter="hover=true" ng-mouseleave="hover=false">
+			<div class="panel-body">
+				<div class="media">
+					<div class="media-left media-middle pull-left">
+						<span class="score">{{ post.score }}</span><br>
+					</div>
+					<div class="media-left media-middle media-thumb" ng-hide="!post.thumbnail || post.thumbnail=='self' || post.thumbnail=='default' || hover==true">
+						<a href="{{ post.url }}" class="thumb-link">
+							<img src="{{ post.thumbnail }}" class="media-object">
+						</a>
+					</div>
+					<div class="media-body">
+						<small class="pull-right"><a href="#/r/{{ post.subreddit }}" class="sub-link">r/{{ post.subreddit }}</a></small>
+						<h4 class="media-heading">
+							<a href="https://www.reddit.com{{ post.permalink }}" class="post-link" target="_blank">
+								{{ post.title }}
+							</a>
+						</h4>
+						<!-- Only show preview for images and videos -->
+						<!-- Add gif/video/gallery embed -->
+						<!-- Wait until load to show full preview -->
+						<div class="full-preview" ng-show="hover==true && post.thumbnail">
+							<p>{{ post.selftext }}</p>
+							<img ng-src="{{ post.preview.images[0].source.url }}" alt="{{ post.title }}" class="img-responsive" ng-hide="post.thumbnail=='self' || post.thumbnail=='default'" />
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
