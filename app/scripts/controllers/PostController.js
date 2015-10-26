@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('reddesign00App');
+var app = angular.module('Reddesign');
 
 app.controller('PostController',['$scope','$routeParams','$http','$sce',function($scope, $routeParams, $http, $sce) {
 	$scope.postName = $routeParams.postName;

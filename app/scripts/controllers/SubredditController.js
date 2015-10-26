@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('reddesign00App');
+var app = angular.module('Reddesign');
 
 app.controller('SubredditController',['$scope','$routeParams','$http',function($scope, $routeParams, $http) {
 	$scope.subName = $routeParams.subName;

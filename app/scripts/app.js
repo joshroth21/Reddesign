@@ -2,13 +2,12 @@
 
 /**
  * @ngdoc overview
- * @name reddesign00App
+ * @name Reddesign
  * @description
- * # reddesign00App
+ * # Reddesign
  *
  * Main module of the application.
  */
-var app = angular.module('reddesign00App', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngTouch', 'ngRoute']);
 var app = angular.module('Reddesign', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngTouch', 'ngRoute', 'infinite-scroll']);
 
 app.config(function ($routeProvider) {
