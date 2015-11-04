@@ -12,6 +12,10 @@ $light_bg: #eff7ff;
 $header: #cee3f8;
 $ui_text: #336699;
 
+bodY {
+	background-color: desaturate($light_bg,100);
+}
+
 .navbar {
 	background-color: $light_bg;
 	border-bottom-color: lighten($reddit_orange,25);
@@ -26,6 +30,14 @@ $ui_text: #336699;
 				color: $reddit_orange;
 			}
 		}
+	}
+}
+
+.post-info {
+	.score {
+		color: $neutral;
+		font-size: 1.25em;
+		font-weight: bold;
 	}
 }
 
@@ -81,12 +93,6 @@ h4 {
 
 .media-left {
 	padding-right: 1.5em;
-}
-
-.score {
-	color: $neutral;
-	font-size: 1.25em;
-	font-weight: bold;
 }
 
 .full-preview {

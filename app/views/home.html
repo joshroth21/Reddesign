@@ -1,36 +1,12 @@
 <div class="row">
 	<div class="col-sm-12" infinite-scroll="topPosts.nextPage()" infinite-scroll-disabled='topPosts.busy' infinite-scroll-distance='1'>
-		<!-- <div class="page-header">
-			<h1>Top 10 Posts</h1>
-		</div> -->
-		<!-- <div class="panel panel-default" ng-repeat="post in topPosts">
-				<div class="panel-heading">
-					<h4 class="panel-title clearfix">
-						<div class="well well-sm pull-left score">{{ post.data.score }}</div>
-						<div class="well well-sm pull-right comments">{{ post.data.num_comments }}</div>
-						<a href="#/p/{{ post.data.name }}" class="post-link">
-							{{ post.data.title }}
-						</a>
-						<small><a href="#/r/{{ post.data.subreddit }}" class="sub-link">r/{{ post.data.subreddit }}</a></small>
-					</h4>
-				</div>
-				<div class="panel-body" ng-hide="!post.data.thumbnail && !post.data.selftext">
-					<div class="post-thumbnail" ng-show="{{ post.data.thumbnail }}">
-						<a href="{{ post.data.url }}" class="thumb-link"><img src="{{ post.data.thumbnail }}" class="img-thumbnail"></a>
-					</div>
-					<div class="post-text" ng-show="{{ post.data.selftext }}">
-						<p>{{ post.data.selftext }}</p>
-					</div>
-				</div>
-			</a>
-		</div> -->
-		<div class="panel panel-default post" ng-repeat="post in topPosts.items" ng-class="{ active: hover }" ng-mouseenter="hover=true" ng-mouseleave="hover=false">
-			<div class="panel-body">
+		<div class="panel panel-default post" ng-repeat="post in topPosts.items" ng-mouseover="hover = true" ng-mouseout="hover = false" id="{{ post.name }}">
+			<div class="panel-body" ng-hide="hover">
 				<div class="media">
-					<div class="media-left media-middle pull-left">
+					<div class="media-left media-middle pull-left post-info">
 						<span class="score">{{ post.score }}</span><br>
 					</div>
-					<div class="media-left media-middle media-thumb" ng-hide="!post.thumbnail || post.thumbnail=='self' || post.thumbnail=='default' || hover==true">
+					<div class="media-left media-middle media-thumb" ng-hide="!post.thumbnail || post.thumbnail=='self' || post.thumbnail=='default'">
 						<a href="{{ post.url }}" class="thumb-link">
 							<img src="{{ post.thumbnail }}" class="media-object">
 						</a>
@@ -42,14 +18,18 @@
 								{{ post.title }}
 							</a>
 						</h4>
-						<!-- Only show preview for images and videos -->
-						<!-- Add gif/video/gallery embed -->
-						<!-- Wait until load to show full preview -->
-						<div class="full-preview" ng-show="hover==true && post.thumbnail">
-							<p>{{ post.selftext }}</p>
-							<img ng-src="{{ post.preview.images[0].source.url }}" alt="{{ post.title }}" class="img-responsive" ng-hide="post.thumbnail=='self' || post.thumbnail=='default'" />
-						</div>
 					</div>
+				</div>
+			</div>
+			<div class="panel-body" ng-show="hover">
+				<!-- Only show preview for images and videos -->
+				<!-- Add gif/video/gallery embed -->
+				<!-- Wait until load to show full preview -->
+				<div class="full-preview">
+					<small class="pull-right"><a href="#/r/{{ post.subreddit }}" class="sub-link">r/{{ post.subreddit }}</a></small>
+					<p>{{ post.selftext }}</p>
+					<img ng-src="{{ post.preview.images[0].source.url }}" alt="{{ post.title }}" class="img-responsive" ng-hide="post.domain=='i.imgur.com' || post.thumbnail=='self' || post.thumbnail=='default'" />
+					<img ng-show="post.domain=='i.imgur.com'" ng-src="{{ post.url }}" alt="{{ post.title }}" class="img-responsive" />
 				</div>
 			</div>
 		</div>
