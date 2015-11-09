@@ -1,7 +1,20 @@
 <div class="row">
 	<div class="col-sm-12" infinite-scroll="topPosts.nextPage()" infinite-scroll-disabled='topPosts.busy' infinite-scroll-distance='1'>
 		<div class="panel panel-default post" ng-repeat="post in topPosts.items" ng-mouseover="hover = true" ng-mouseout="hover = false" id="{{ post.name }}">
-			<div class="panel-body" ng-hide="hover">
+			<div class="panel-heading">
+				<small class="subreddit pull-right"><a href="#/r/{{ post.subreddit }}" class="sub-link">r/{{ post.subreddit }}</a></small>
+				<h4 class="panel-title">
+					<span class="score pull-left">{{ post.score }}</span>
+					<a href="https://www.reddit.com{{ post.permalink }}" class="post-link" target="_blank">
+						{{ post.title }}
+					</a>
+				</h4>
+			</div>
+			<div class="panel-body">
+				<p ng-hide="!post.selftext">{{ post.selftext }}</p>
+				<img ng-src="{{ post.url }}" alt="{{ post.title }}" class="post-img" ng-hide="post.thumbnail=='self' || post.thumbnail=='default' || !post.thumbnail" />
+			</div>
+			<!-- <div class="panel-body" ng-hide="hover">
 				<div class="media">
 					<div class="media-left media-middle pull-left post-info">
 						<span class="score">{{ post.score }}</span><br>
@@ -20,18 +33,18 @@
 						</h4>
 					</div>
 				</div>
-			</div>
-			<div class="panel-body" ng-show="hover">
-				<!-- Only show preview for images and videos -->
-				<!-- Add gif/video/gallery embed -->
-				<!-- Wait until load to show full preview -->
+			</div> -->
+			<!-- <div class="panel-body" ng-show="hover">
+				Only show preview for images and videos
+				Add gif/video/gallery embed
+				Wait until load to show full preview
 				<div class="full-preview">
 					<small class="pull-right"><a href="#/r/{{ post.subreddit }}" class="sub-link">r/{{ post.subreddit }}</a></small>
 					<p>{{ post.selftext }}</p>
 					<img ng-src="{{ post.preview.images[0].source.url }}" alt="{{ post.title }}" class="img-responsive" ng-hide="post.domain=='i.imgur.com' || post.thumbnail=='self' || post.thumbnail=='default'" />
 					<img ng-show="post.domain=='i.imgur.com'" ng-src="{{ post.url }}" alt="{{ post.title }}" class="img-responsive" />
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>

@@ -33,12 +33,10 @@ bodY {
 	}
 }
 
-.post-info {
-	.score {
-		color: $neutral;
-		font-size: 1.25em;
-		font-weight: bold;
-	}
+.score {
+	color: $neutral;
+	font-size: 1.25em;
+	font-weight: bold;
 }
 
 .post {
@@ -49,6 +47,10 @@ bodY {
 	&.active {
 		border-color: $reddit_orange;
 		transform: scale(1);
+	}
+	.panel-heading {
+		background-color: $light_bg;
+		border: 1px solid #FFF;
 	}
 }
 
@@ -64,17 +66,26 @@ bodY {
 	}
 }
 
-h4 {
+h4.panel-title {
+	font-size: 18px;
 	font-weight: normal;
+	line-height: 1.5em;
+	margin: 0;
+	padding: 0;
 	.score {
-		font-size: 14px;
+		font-size: 18px;
 		font-weight: bold;
+		line-height: 1em;
 		margin-right: 1em;
 	}
 	.comments {
 		font-weight: normal;
 		font-size: 13px;
 	}
+}
+
+.subreddit {
+	margin-left: 10px;
 }
 
 .thumb-link {
@@ -93,6 +104,12 @@ h4 {
 
 .media-left {
 	padding-right: 1.5em;
+}
+
+.post-img {
+	height: auto;
+	width: 100%;
+	max-width: 100%;
 }
 
 .full-preview {
