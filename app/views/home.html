@@ -1,50 +1,27 @@
 <div class="row">
 	<div class="col-sm-12" infinite-scroll="topPosts.nextPage()" infinite-scroll-disabled='topPosts.busy' infinite-scroll-distance='1'>
-		<div class="panel panel-default post" ng-repeat="post in topPosts.items" ng-mouseover="hover = true" ng-mouseout="hover = false" id="{{ post.name }}">
-			<div class="panel-heading">
+		<div class="post-wrap" ng-repeat="post in topPosts.items">
+			<div class="meta">
+				<div class="voting pull-left">
+					<span class="score">{{ post.score }}</span>
+					<a ng-click="" class="upvote"><i class="fa fa-arrow-circle-up"></i></a>
+					<a ng-click="" class="downvote"><i class="fa fa-arrow-circle-down"></i></a>
+				</div>
 				<small class="subreddit pull-right"><a href="#/r/{{ post.subreddit }}" class="sub-link">r/{{ post.subreddit }}</a></small>
-				<h4 class="panel-title">
-					<span class="score pull-left">{{ post.score }}</span>
-					<a href="https://www.reddit.com{{ post.permalink }}" class="post-link" target="_blank">
-						{{ post.title }}
-					</a>
-				</h4>
 			</div>
-			<div class="panel-body">
-				<p ng-hide="!post.selftext">{{ post.selftext }}</p>
-				<img ng-src="{{ post.url }}" alt="{{ post.title }}" class="post-img" ng-hide="post.thumbnail=='self' || post.thumbnail=='default' || !post.thumbnail" />
-			</div>
-			<!-- <div class="panel-body" ng-hide="hover">
-				<div class="media">
-					<div class="media-left media-middle pull-left post-info">
-						<span class="score">{{ post.score }}</span><br>
-					</div>
-					<div class="media-left media-middle media-thumb" ng-hide="!post.thumbnail || post.thumbnail=='self' || post.thumbnail=='default'">
-						<a href="{{ post.url }}" class="thumb-link">
-							<img src="{{ post.thumbnail }}" class="media-object">
+			<div class="panel panel-default post" ng-mouseover="hover = true" ng-mouseout="hover = false" id="{{ post.name }}">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a href="https://www.reddit.com{{ post.permalink }}" class="post-link" target="_blank">
+							{{ post.title }}
+							<span class="link pull-right" ng-show="!post.selftext && !post.thumbnail"><i class="fa fa-link"></i></span>
 						</a>
-					</div>
-					<div class="media-body">
-						<small class="pull-right"><a href="#/r/{{ post.subreddit }}" class="sub-link">r/{{ post.subreddit }}</a></small>
-						<h4 class="media-heading">
-							<a href="https://www.reddit.com{{ post.permalink }}" class="post-link" target="_blank">
-								{{ post.title }}
-							</a>
-						</h4>
-					</div>
+					</h4>
 				</div>
-			</div> -->
-			<!-- <div class="panel-body" ng-show="hover">
-				Only show preview for images and videos
-				Add gif/video/gallery embed
-				Wait until load to show full preview
-				<div class="full-preview">
-					<small class="pull-right"><a href="#/r/{{ post.subreddit }}" class="sub-link">r/{{ post.subreddit }}</a></small>
-					<p>{{ post.selftext }}</p>
-					<img ng-src="{{ post.preview.images[0].source.url }}" alt="{{ post.title }}" class="img-responsive" ng-hide="post.domain=='i.imgur.com' || post.thumbnail=='self' || post.thumbnail=='default'" />
-					<img ng-show="post.domain=='i.imgur.com'" ng-src="{{ post.url }}" alt="{{ post.title }}" class="img-responsive" />
+				<div class="panel-body" ng-hide="!post.selftext && !post.thumbnail">
+					<post-body></post-body>
 				</div>
-			</div> -->
+			</div>
 		</div>
 	</div>
 </div>

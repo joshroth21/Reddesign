@@ -1,0 +1,5 @@
+<p ng-show="post.selftext" ng-bind-html="post.selftext_html | limitTo: 200"></p>
+
+<a href="{{post.url}}"><img class="thumbnail thubmnail-rounded" ng-show="post.thumbnail && post.thumbnail !== 'nsfw'" ng-src="{{post.thumbnail}}" alt="{{post.title}}" /></a>
+
+<!-- <div class="well well-sm ">{{ post | json }}</div> -->
