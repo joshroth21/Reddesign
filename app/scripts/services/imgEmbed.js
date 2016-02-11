@@ -1,4 +1,5 @@
 'use strict';
+
 angular.module('Reddesign').factory('embedGif', function($http,url) {
 	var embedUrl;
 	// var regexImg = /.jpg|.webm|.gif|.png/g; // Does the url contain an image?

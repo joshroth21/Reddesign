@@ -9,7 +9,9 @@
     "angular-sanitize": "^1.3.0",
     "angular-touch": "^1.3.0",
     "angular-route": "^1.4.7",
-    "ngInfiniteScroll": "1.0.0"
+    "ngInfiniteScroll": "1.0.0",
+    "font-awesome": "fontawesome#~4.5.0",
+    "angular-relative-date": "^2.0.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.0"
@@ -24,5 +26,21 @@
         "dist/js/bootstrap.js"
       ]
     }
-  }
+  },
+  "homepage": "https://github.com/joshroth21/Reddesign",
+  "authors": [
+    "Josh Roth <josh@josh@joshroth.me>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }

@@ -1,7 +1,7 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css";
+@import "font-awesome/scss/font-awesome.scss";
 // endbower
 
 $orange: #ff5700;
@@ -21,22 +21,19 @@ body {
 	background-color: $darkblue;
 }
 
-.navbar {
-	background-color: lighten($darkblue,50);
-	border-bottom-color: $lightblue;
-	border-radius: 0;
-	.navbar-brand {
-		color: $orange;
-		font-size: 21px;
-		font-weight: bold;
+.header {
+	background-color: #18416B;
+	color: $ui_text;
+	margin-bottom: 30px;
+	padding: 1em;
+	.col-sm-11 {
+		padding-left: 30px;
 	}
-	.navbar-text {
-		a, a:visited {
-			color: $neutral;
-			&:hover {
-				color: $orange;
-			}
-		}
+	.logo {
+		color: $orange;
+		font-size: 25px;
+		font-weight: bold;
+		text-shadow: 1px 2px 1px rgba(25,25,25,0.75);
 	}
 }
 
@@ -51,6 +48,7 @@ body {
 	color: #000;
 	font-size: 14px;
 	line-height: 1.25em;
+	margin-bottom: 0;
 	&.active {
 		border-color: $orange;
 		transform: scale(1);
@@ -76,10 +74,10 @@ body {
 
 .meta {
 	background-color: $darkblue;
-	color: $light_bg;
+	color: #FFF;
 	clear: both;
 	display: inline-block;
-	font-size: 13px;
+	font-size: 14px;
 	line-height: 1em;
 	padding: 0 0 10px 0;
 	width: 100%;
@@ -88,45 +86,68 @@ body {
 		font-weight: bold;
 		margin-right: 10px;
 	}
-	.upvote, .downvote {
-		color: $lightblue;
-		cursor: pointer;
-		font-size: 18px;
-		margin-right: 6px;
-		&:hover {
-			color: #FFF;
-			transform: scale(1.5);
-		}
+}
+
+.side {
+	padding-right: 0;
+}
+
+.upvote, .downvote {
+	color: $lightblue;
+	cursor: pointer;
+	font-size: 25px;
+	&:hover {
+		color: #FFF;
 	}
 }
 
-a.sub-link, a.sub-link:visited { color: #FFF; text-decoration: none; }
+a.sub-link, a.sub-link:visited { color: $neutral; font-style: italic; text-decoration: none; }
 a.sub-link:hover { color: $neutral; }
 
 h4.panel-title {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: normal;
 	line-height: 1.5em;
 	margin: 0;
 	padding: 0;
 	.post-link {
-		color: $darkblue;
-	}
-	.link {
-		font-size: 18px;
-	}
-	.comments {
-		font-weight: normal;
-		font-size: 13px;
+		color: #000;
+		&:hover {
+			color: $darkblue;
+		}
 	}
 }
 
 .panel-body {
-	// border-top: 1px solid $lightblue;
+	border-top: 1px solid $lightblue;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	.img-responsive {
+		margin: 0 auto;
+	}
+	pre {
+		margin: 10px 0;
+		height: 100px;
+		overflow: scroll;
+	}
 }
 
 .subreddit {
 	margin-left: 10px;
+}
+
+.below {
+	color: $neutral;
+	font-size: 12px;
+	padding-top: 10px;
+	a {
+		color: inherit;
+		text-decoration: underline;
+		&:hover {
+			color: #FFF;
+			text-decoration: none;
+		}
+	}
 }
 
 .thumb-link {
@@ -166,7 +187,6 @@ h4.panel-title {
 	}
 }
 
-
 .well.well-sm {
 	background-color: #FFF;
 	word-wrap: break-word;
@@ -174,6 +194,9 @@ h4.panel-title {
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 700px;
+    max-width: 760px;
+  }
+  .post {
+	  min-height: 70px;
   }
 }

@@ -3,7 +3,7 @@
 <!-- <a href="{{post.url}}"><img class="thumbnail thubmnail-rounded" ng-show="post.thumbnail && post.thumbnail !== 'nsfw'" ng-src="{{post.thumbnail}}" alt="{{post.title}}" /></a> -->
 
 <div ng-if="post.post_hint == 'image'">
-    <img src="{{ post.url }}" alt="{{ post.title }}" class="img-responsive">
+    {{ post.url }}
 </div>
 
 <pre>{{ post | json:4 }}</pre>

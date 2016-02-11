@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-var app = angular.module('Reddesign', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngTouch', 'ngRoute', 'infinite-scroll']);
+var app = angular.module('Reddesign', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngTouch', 'ngRoute', 'infinite-scroll', 'relativeDate']);
 
 app.config(function ($routeProvider) {
 	$routeProvider
